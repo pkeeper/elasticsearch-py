@@ -372,7 +372,7 @@ class Elasticsearch(object):
         'lowercase_expanded_terms', 'from_', 'preference', 'q', 'routing',
         'scroll', 'search_type', 'size', 'sort', 'source', 'stats',
         'suggest_field', 'suggest_mode', 'suggest_size', 'suggest_text', 'timeout',
-        'version')
+        'version', 'ignore_unmapped')
     def search(self, index=None, doc_type=None, body=None, params=None):
         """
         Execute a search query and get back search hits that match the query.
@@ -409,6 +409,7 @@ class Elasticsearch(object):
             indices that are open, closed or both., default 'open'
         :arg ignore_unavailable: Whether specified concrete indices should be
             ignored when unavailable (missing or closed)
+        :arg ignore_unmapped: Ignore sort key if it's missing in the mapping
         :arg lowercase_expanded_terms: Specify whether query terms should be lowercased
         :arg from\_: Starting offset (default: 0)
         :arg preference: Specify the node or shard the operation should be
